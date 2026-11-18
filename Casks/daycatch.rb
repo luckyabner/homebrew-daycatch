@@ -9,7 +9,9 @@ cask "daycatch" do
 
   # 应用会用 Sparkle 自己更新，brew 不需要跟着升级，也不该因为版本号不一致而报错
   auto_updates true
-  depends_on macos: :sonoma
+  # 最低系统版本交给 app 自己的 LSMinimumSystemVersion（project.yml 的 deploymentTarget）：
+  # cask 的  在 Homebrew 4.6 里表示「只允许 Sonoma」，
+  # 而  又会报弃用警告，两边都不合适，所以这里不写。
 
   app "Daycatch.app"
 
