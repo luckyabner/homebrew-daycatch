@@ -13,6 +13,13 @@ cask "daycatch" do
 
   app "Daycatch.app"
 
+  # 没公证的 app：brew 下载后仍会带 quarantine，首次启动会被 Gatekeeper 拦。
+  # 应用本身用 Sparkle 的 EdDSA 签名校验更新（见 docs/updates.md），这里去掉隔离属性
+  # 等价于用户自己跑 xattr -dr com.apple.quarantine，换来真正的「装完就能用」。
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Daycatch.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/com.luckyabner.daycatch",
     "~/Library/Caches/com.luckyabner.daycatch",
