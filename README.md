@@ -4,16 +4,22 @@
 
 ## 安装
 
+Homebrew 要求先信任第三方 tap（它要加载这里的 cask 定义）：
+
 ```sh
+brew trust luckyabner/daycatch
 brew install --cask luckyabner/daycatch/daycatch
 ```
 
-等价写法：
+写全了是 `<用户名>/<tap 名>/<cask 名>`。也可以先 tap 再按短名装：
 
 ```sh
 brew tap luckyabner/daycatch
+brew trust luckyabner/daycatch
 brew install --cask daycatch
 ```
+
+Daycatch 是自签名、未公证的。cask 在安装后会去掉文件上的 quarantine 属性，所以装完可以直接打开，不会遇到「无法验证开发者」。
 
 ## 更新
 
@@ -37,7 +43,10 @@ brew untap luckyabner/daycatch
 Homebrew tap for [Daycatch](https://github.com/luckyabner/daycatch), a macOS menu bar app that turns selected text or screenshots into calendar events and reminders.
 
 ```sh
+brew trust luckyabner/daycatch
 brew install --cask luckyabner/daycatch/daycatch
 ```
+
+The app is self-signed and not notarized; the cask removes the quarantine attribute after install so it launches without a Gatekeeper prompt.
 
 Updates are delivered by Sparkle (`auto_updates true`), so don't use `brew upgrade` for this cask.
