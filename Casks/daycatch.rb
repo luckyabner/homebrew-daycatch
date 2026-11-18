@@ -1,6 +1,6 @@
 cask "daycatch" do
-  version "0.2.0"
-  sha256 "a7655115ce59b02688941f04248fd9af89c4350d8bbec40e1bac346aab7fc786"
+  version "0.3.0"
+  sha256 "59005d03253d02286f3603011e521b882ddd7833a3db625c63db986cd4c1baaf"
 
   url "https://github.com/luckyabner/daycatch/releases/download/v#{version}/Daycatch-#{version}.zip"
   name "Daycatch"
