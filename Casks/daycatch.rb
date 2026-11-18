@@ -9,7 +9,7 @@ cask "daycatch" do
 
   # 应用会用 Sparkle 自己更新，brew 不需要跟着升级，也不该因为版本号不一致而报错
   auto_updates true
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Daycatch.app"
 
